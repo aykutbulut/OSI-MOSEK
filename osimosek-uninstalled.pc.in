@@ -1,0 +1,11 @@
+prefix=@prefix@
+libdir=@prefix@/lib
+includedir=@prefix@/include
+
+Name: OsiMosek
+Description: Osi Mosek Solver Interface
+URL: https://github.com/aykutbulut/OsiMosek
+Version: @PACKAGE_VERSION@
+Requires: osiconic osi-mosek osi coinutils
+Libs: -L${libdir} -lOsimosek
+Cflags: -I${includedir}
