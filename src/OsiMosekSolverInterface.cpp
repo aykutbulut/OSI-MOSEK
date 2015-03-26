@@ -21,7 +21,8 @@ OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolve
 }
 
 // get conic constraints
-void OsiMosekSolverInterface::getConicConstraint(int index, OsiConeType & type,
+void OsiMosekSolverInterface::getConicConstraint(int index,
+						 OsiLorentzConeType & type,
 					       int & numMembers,
 					       int *& members) const {
   //const MSKenv_t env = OsiMskSolverInterface::getEnvironmentPtr();
@@ -33,6 +34,7 @@ void OsiMosekSolverInterface::getConicConstraint(int index, OsiConeType & type,
   int * submem;
   // get conic constraint
   res = MSK_getcone(task, index, &conetype, &conepar, &nummem, submem);
+  std::cout << "Mosek error code " << res << std::endl;
   numMembers = nummem;
   // who will free members?
   members = new int[numMembers];
@@ -45,8 +47,8 @@ void OsiMosekSolverInterface::getConicConstraint(int index, OsiConeType & type,
   }
 }
 
-// add conic constraints
-void OsiMosekSolverInterface::addConicConstraint(OsiConeType type,
+// add conic constraint in lorentz cone form
+void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
 					       int numMembers,
 					       const int * members) {
   MSKrescodee res;
@@ -62,6 +64,16 @@ void OsiMosekSolverInterface::addConicConstraint(OsiConeType type,
   res = MSK_appendcone(task, conetype, conepar, numMembers, members);
 }
 
+// add conic constraint in |Ax-b| <= dx-h form
+void OsiMosekSolverInterface::addConicConstraint(CoinPackedMatrix const * A,
+						 CoinPackedVector const * b,
+						 CoinPackedVector const * d,
+						 double h) {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+}
+
+
 void OsiMosekSolverInterface::removeConicConstraint(int index) {
   MSKrescodee res;
   MSKtask_t task = OsiMskSolverInterface::getLpPtr();
@@ -73,6 +85,15 @@ void OsiMosekSolverInterface::removeConicConstraint(int index) {
   delete[] subset;
 }
 
+void OsiMosekSolverInterface::modifyConicConstraint(int index,
+						    OsiLorentzConeType type,
+						    int numMembers,
+						    const int * members) {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+}
+
+
 int OsiMosekSolverInterface::getNumCones() const {
   MSKrescodee res;
   MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
@@ -80,6 +101,29 @@ int OsiMosekSolverInterface::getNumCones() const {
   res = MSK_getnumcone(task, &num);
   return num;
 }
+
+int OsiMosekSolverInterface::getConeSize(int i) const {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+  return 0;
+}
+
+OsiConeType OsiMosekSolverInterface::getConeType(int i) const {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+  return OSI_LORENTZ;
+}
+
+void OsiMosekSolverInterface::getConeSize(int * size) const {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+}
+
+void OsiMosekSolverInterface::getConeType(OsiConeType * type) const {
+  std::cerr << "Not implemented yet!" << std::cerr;
+  throw std::exception();
+}
+
 
 OsiConicSolverInterface * OsiMosekSolverInterface::clone(bool copyData) const {
   // we need to clone task and env, I think

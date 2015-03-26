@@ -16,17 +16,30 @@ public:
   OsiMosekSolverInterface & operator=(const OsiMosekSolverInterface & rhs);
   virtual ~OsiMosekSolverInterface();
   // get conic constraints
-  virtual void getConicConstraint(int index, OsiConeType & type,
+  virtual void getConicConstraint(int index, OsiLorentzConeType & type,
 				  int & numMembers,
 				  int *& members) const;
   // add conic constraints
-  virtual void addConicConstraint(OsiConeType type,
+  // add conic constraint in lorentz cone form
+  virtual void addConicConstraint(OsiLorentzConeType type,
 				  int numMembers,
 				  const int * members);
+  // add conic constraint in |Ax-b| <= dx-h form
+  virtual void addConicConstraint(CoinPackedMatrix const * A, CoinPackedVector const * b,
+				  CoinPackedVector const * d, double h);
   virtual void removeConicConstraint(int index);
+  virtual void modifyConicConstraint(int index, OsiLorentzConeType type,
+				     int numMembers,
+				     const int * members);
   virtual int getNumCones() const;
+  virtual int getConeSize(int i) const;
+  virtual OsiConeType getConeType(int i) const;
+  virtual void getConeSize(int * size) const;
+  virtual void getConeType(OsiConeType * type) const;
   virtual OsiConicSolverInterface * clone(bool copyData=true) const;
   virtual int readMps(const char * filename, const char * extension="mps");
+
+
   // inherited from OsiMskSolverInterface <- OsiSolverInterface
   // virtual void loadProblem (const CoinPackedMatrix &matrix, const double *collb,
   // 			    const double *colub, const double *obj,
