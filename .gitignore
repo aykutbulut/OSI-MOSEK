@@ -1,7 +1,8 @@
 # autotools auxilary files
-/autom4te.cache
-/compile
-/stamp-h1
+acinclude.m4
+autom4te.cache
+compile.sh
+stamp-h1
 
 # math modeling input output files
 *.gz
