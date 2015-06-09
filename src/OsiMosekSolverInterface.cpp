@@ -1,4 +1,3 @@
-
 #include "OsiMosekSolverInterface.hpp"
 #include <CoinMpsIO.hpp>
 #include <mosek.h>
@@ -23,8 +22,8 @@ OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolve
 // get conic constraints
 void OsiMosekSolverInterface::getConicConstraint(int index,
 						 OsiLorentzConeType & type,
-					       int & numMembers,
-					       int *& members) const {
+                                                 int & numMembers,
+                                                 int *& members) const {
   //const MSKenv_t env = OsiMskSolverInterface::getEnvironmentPtr();
   const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   MSKrescodee res;
@@ -34,7 +33,10 @@ void OsiMosekSolverInterface::getConicConstraint(int index,
   int * submem;
   // get conic constraint
   res = MSK_getcone(task, index, &conetype, &conepar, &nummem, submem);
-  std::cout << "Mosek error code " << res << std::endl;
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
   numMembers = nummem;
   // who will free members?
   members = new int[numMembers];
@@ -53,7 +55,7 @@ void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
 					       const int * members) {
   MSKrescodee res;
   MSKconetypee conetype;
-  const MSKtask_t task = OsiMskSolverInterface::getLpPtr();
+  MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   double conepar = 0.0;
   if (type==OSI_QUAD) {
     conetype = MSK_CT_QUAD;
@@ -62,6 +64,10 @@ void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
     conetype = MSK_CT_RQUAD;
   }
   res = MSK_appendcone(task, conetype, conepar, numMembers, members);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
 }
 
 // add conic constraint in |Ax-b| <= dx-h form
@@ -99,31 +105,99 @@ int OsiMosekSolverInterface::getNumCones() const {
   MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   int num;
   res = MSK_getnumcone(task, &num);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
   return num;
 }
 
 int OsiMosekSolverInterface::getConeSize(int i) const {
-  std::cerr << "Not implemented yet!" << std::cerr;
-  throw std::exception();
-  return 0;
+  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  MSKrescodee res;
+  MSKconetypee conetype;
+  double conepar;
+  int nummem;
+  // get conic constraint information
+  res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
+  return nummem;
 }
 
+// for mosek all cones are lorentz cones.
 OsiConeType OsiMosekSolverInterface::getConeType(int i) const {
-  std::cerr << "Not implemented yet!" << std::cerr;
-  throw std::exception();
+  int num_cones = getNumCones();
+  if (i>=num_cones) {
+    std::cerr << __PRETTY_FUNCTION__ << "Cone " << i << " does not exist!"
+              << std::endl;
+    throw std::exception();
+  }
   return OSI_LORENTZ;
 }
 
+OsiLorentzConeType OsiMosekSolverInterface::getLorentzConeType(int i) const {
+  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  MSKrescodee res;
+  MSKconetypee conetype;
+  double conepar;
+  int nummem;
+  OsiLorentzConeType type;
+  // get conic constraint information
+  res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
+  if (conetype==MSK_CT_QUAD) {
+    type = OSI_QUAD;
+  }
+  else if (conetype==MSK_CT_RQUAD) {
+    type = OSI_RQUAD;
+  }
+  else {
+    std::cerr << __PRETTY_FUNCTION__ << " Unknown mosek cone type!"
+              << std::endl;
+    throw std::exception();
+  }
+  return type;
+}
+
+// fills array of cone sizes.
 void OsiMosekSolverInterface::getConeSize(int * size) const {
-  std::cerr << "Not implemented yet!" << std::cerr;
-  throw std::exception();
+  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  MSKrescodee res;
+  MSKconetypee conetype;
+  double conepar;
+  int nummem;
+  int num_cones = getNumCones();
+  for (int i=0; i<num_cones; ++i) {
+    // get conic constraint information
+    res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
+    if (res!=MSK_RES_OK) {
+      std::cerr << "Mosek status " << res << std::endl;
+      throw std::exception();
+    }
+    size[i] = nummem;
+  }
 }
 
+// fills array of cone types.
 void OsiMosekSolverInterface::getConeType(OsiConeType * type) const {
-  std::cerr << "Not implemented yet!" << std::cerr;
-  throw std::exception();
+  int num_cones = getNumCones();
+  for (int i=0; i<num_cones; ++i) {
+    type[i] = getConeType(i);
+  }
 }
 
+void OsiMosekSolverInterface::getConeType(OsiLorentzConeType * type) const {
+  int num_cones = getNumCones();
+  for (int i=0; i<num_cones; ++i) {
+    type[i] = getLorentzConeType(i);
+  }
+}
 
 OsiConicSolverInterface * OsiMosekSolverInterface::clone(bool copyData) const {
   // we need to clone task and env, I think

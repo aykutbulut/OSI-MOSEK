@@ -7,6 +7,8 @@
 
 class OsiMosekSolverInterface: virtual public OsiConicSolverInterface,
 			       virtual public OsiMskSolverInterface {
+
+  OsiLorentzConeType getLorentzConeType(int i) const;
 public:
   // default constructor
   OsiMosekSolverInterface();
@@ -36,6 +38,7 @@ public:
   virtual OsiConeType getConeType(int i) const;
   virtual void getConeSize(int * size) const;
   virtual void getConeType(OsiConeType * type) const;
+  virtual void getConeType(OsiLorentzConeType * type) const;
   virtual OsiConicSolverInterface * clone(bool copyData=true) const;
   virtual int readMps(const char * filename, const char * extension="mps");
 
