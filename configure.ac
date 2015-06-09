@@ -57,19 +57,19 @@ AC_COIN_INIT_AUTO_TOOLS
 #############################################################################
 #                              COIN-OR components                           #
 #############################################################################
-AC_COIN_CHECK_PACKAGE(CoinUtils, [coinutils], [OsiMosek])
+AC_COIN_CHECK_PACKAGE(CoinUtils, [coinutils], [OsiMosekLib])
 if test $coin_has_coinutils != yes ; then
   AC_MSG_ERROR([Required package CoinUtils not available.])
 fi
-AC_COIN_CHECK_PACKAGE(Osi,       [osi],       [OsiMosek])
+AC_COIN_CHECK_PACKAGE(Osi,       [osi],       [OsiMosekLib])
 if test $coin_has_osi != yes ; then
   AC_MSG_ERROR([Required package Osi not available.])
 fi
-AC_COIN_CHECK_PACKAGE(OsiMsk,    [osi-mosek],  [OsiMosek])
+AC_COIN_CHECK_PACKAGE(OsiMsk,    [osi-mosek],  [OsiMosekLib])
 if test $coin_has_osi != yes ; then
-  AC_MSG_ERROR([Required package Osi not available.])
+  AC_MSG_ERROR([Required package OsiMsk not available.])
 fi
-AC_COIN_CHECK_PACKAGE(OsiConic,  [osiconic],  [OsiMosek])
+AC_COIN_CHECK_PACKAGE(OsiConic,  [osiconic],  [OsiMosekLib])
 if test $coin_has_osiconic != yes ; then
   AC_MSG_ERROR([Required package OsiConic not available.])
 fi
@@ -77,7 +77,7 @@ fi
 #############################################################################
 #                  Check for doxygen                                        #
 #############################################################################
-AC_COIN_DOXYGEN(CoinUtils Osi OsiConic)
+AC_COIN_DOXYGEN(CoinUtils Osi OsiMsk OsiConic)
 
 ##############################################################################
 #                   Finishing up by writing all the output                   #

@@ -479,7 +479,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS build build_cpu build_vendor build_os ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion OSIMOSEK_SVN_REV CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS DEPENDENCY_LINKING_TRUE DEPENDENCY_LINKING_FALSE LT_LDFLAGS PKG_CONFIG ac_ct_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED COINUTILS_LIBS COINUTILS_CFLAGS COINUTILS_DATA COINUTILS_DEPENDENCIES COINUTILS_LIBS_INSTALLED COINUTILS_CFLAGS_INSTALLED COINUTILS_DATA_INSTALLED OSIMOSEK_CFLAGS OSIMOSEK_LIBS OSIMOSEK_PCLIBS OSIMOSEK_PCREQUIRES OSIMOSEK_DEPENDENCIES OSIMOSEK_CFLAGS_INSTALLED OSIMOSEK_LIBS_INSTALLED COIN_HAS_COINUTILS_TRUE COIN_HAS_COINUTILS_FALSE OSI_LIBS OSI_CFLAGS OSI_DATA OSI_DEPENDENCIES OSI_LIBS_INSTALLED OSI_CFLAGS_INSTALLED OSI_DATA_INSTALLED COIN_HAS_OSI_TRUE COIN_HAS_OSI_FALSE OSIMSK_LIBS OSIMSK_CFLAGS OSIMSK_DATA OSIMSK_DEPENDENCIES OSIMSK_LIBS_INSTALLED OSIMSK_CFLAGS_INSTALLED OSIMSK_DATA_INSTALLED COIN_HAS_OSIMSK_TRUE COIN_HAS_OSIMSK_FALSE OSICONIC_LIBS OSICONIC_CFLAGS OSICONIC_DATA OSICONIC_DEPENDENCIES OSICONIC_LIBS_INSTALLED OSICONIC_CFLAGS_INSTALLED OSICONIC_DATA_INSTALLED COIN_HAS_OSICONIC_TRUE COIN_HAS_OSICONIC_FALSE coin_have_doxygen coin_have_latex coin_doxy_usedot coin_doxy_tagname coin_doxy_logname COIN_HAS_DOXYGEN_TRUE COIN_HAS_DOXYGEN_FALSE COIN_HAS_LATEX_TRUE COIN_HAS_LATEX_FALSE coin_doxy_tagfiles coin_doxy_excludes LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS build build_cpu build_vendor build_os ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion OSIMOSEK_SVN_REV CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS DEPENDENCY_LINKING_TRUE DEPENDENCY_LINKING_FALSE LT_LDFLAGS PKG_CONFIG ac_ct_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED COINUTILS_LIBS COINUTILS_CFLAGS COINUTILS_DATA COINUTILS_DEPENDENCIES COINUTILS_LIBS_INSTALLED COINUTILS_CFLAGS_INSTALLED COINUTILS_DATA_INSTALLED OSIMOSEKLIB_CFLAGS OSIMOSEKLIB_LIBS OSIMOSEKLIB_PCLIBS OSIMOSEKLIB_PCREQUIRES OSIMOSEKLIB_DEPENDENCIES OSIMOSEKLIB_CFLAGS_INSTALLED OSIMOSEKLIB_LIBS_INSTALLED COIN_HAS_COINUTILS_TRUE COIN_HAS_COINUTILS_FALSE OSI_LIBS OSI_CFLAGS OSI_DATA OSI_DEPENDENCIES OSI_LIBS_INSTALLED OSI_CFLAGS_INSTALLED OSI_DATA_INSTALLED COIN_HAS_OSI_TRUE COIN_HAS_OSI_FALSE OSIMSK_LIBS OSIMSK_CFLAGS OSIMSK_DATA OSIMSK_DEPENDENCIES OSIMSK_LIBS_INSTALLED OSIMSK_CFLAGS_INSTALLED OSIMSK_DATA_INSTALLED COIN_HAS_OSIMSK_TRUE COIN_HAS_OSIMSK_FALSE OSICONIC_LIBS OSICONIC_CFLAGS OSICONIC_DATA OSICONIC_DEPENDENCIES OSICONIC_LIBS_INSTALLED OSICONIC_CFLAGS_INSTALLED OSICONIC_DATA_INSTALLED COIN_HAS_OSICONIC_TRUE COIN_HAS_OSICONIC_FALSE coin_have_doxygen coin_have_latex coin_doxy_usedot coin_doxy_tagname coin_doxy_logname COIN_HAS_DOXYGEN_TRUE COIN_HAS_DOXYGEN_FALSE COIN_HAS_LATEX_TRUE COIN_HAS_LATEX_FALSE coin_doxy_tagfiles coin_doxy_excludes LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -20777,13 +20777,13 @@ if test "${with_coinutils_lib+set}" = set; then
        COINUTILS_LIBS="$withval"
        COINUTILS_PCLIBS="$withval"
 
-         OSIMOSEK_PCLIBS="$withval $OSIMOSEK_PCLIBS"
-         OSIMOSEK_LIBS="$withval $OSIMOSEK_LIBS"
+         OSIMOSEKLIB_PCLIBS="$withval $OSIMOSEKLIB_PCLIBS"
+         OSIMOSEKLIB_LIBS="$withval $OSIMOSEKLIB_LIBS"
 
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          COINUTILS_LIBS_INSTALLED="$withval"
-         OSIMOSEK_LIBS_INSTALLED="$withval $OSIMOSEK_LIBS_INSTALLED"
+         OSIMOSEKLIB_LIBS_INSTALLED="$withval $OSIMOSEKLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -20800,11 +20800,11 @@ if test "${with_coinutils_incdir+set}" = set; then
      else
        coin_has_coinutils=yes
        COINUTILS_CFLAGS="-I`${CYGPATH_W} $withval`"
-       OSIMOSEK_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEK_CFLAGS"
+       OSIMOSEKLIB_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEKLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          COINUTILS_CFLAGS_INSTALLED="$COINUTILS_CFLAGS"
-         OSIMOSEK_CFLAGS_INSTALLED="$COINUTILS_CFLAGS $OSIMOSEK_CFLAGS_INSTALLED"
+         OSIMOSEKLIB_CFLAGS_INSTALLED="$COINUTILS_CFLAGS $OSIMOSEKLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -20868,11 +20868,11 @@ echo "${ECHO_T}yes: $COINUTILS_VERSIONS" >&6
         fi
         COINUTILS_PCREQUIRES="coinutils"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosek
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosekLib
 
-          OSIMOSEK_PCREQUIRES="coinutils $OSIMOSEK_PCREQUIRES"
-          OSIMOSEK_CFLAGS="$COINUTILS_CFLAGS $OSIMOSEK_CFLAGS"
-          OSIMOSEK_LIBS="$COINUTILS_LIBS $OSIMOSEK_LIBS"
+          OSIMOSEKLIB_PCREQUIRES="coinutils $OSIMOSEKLIB_PCREQUIRES"
+          OSIMOSEKLIB_CFLAGS="$COINUTILS_CFLAGS $OSIMOSEKLIB_CFLAGS"
+          OSIMOSEKLIB_LIBS="$COINUTILS_LIBS $OSIMOSEKLIB_LIBS"
 
 
 
@@ -21117,11 +21117,11 @@ _ACEOF
 
   COINUTILS_PCREQUIRES="coinutils"
 
-    OSIMOSEK_PCREQUIRES="coinutils $OSIMOSEK_PCREQUIRES"
-    OSIMOSEK_CFLAGS="$COINUTILS_CFLAGS $OSIMOSEK_CFLAGS"
-    OSIMOSEK_LIBS="$COINUTILS_LIBS $OSIMOSEK_LIBS"
-    OSIMOSEK_CFLAGS_INSTALLED="$COINUTILS_CFLAGS_INSTALLED $OSIMOSEK_CFLAGS_INSTALLED"
-    OSIMOSEK_LIBS_INSTALLED="$COINUTILS_LIBS_INSTALLED $OSIMOSEK_LIBS_INSTALLED"
+    OSIMOSEKLIB_PCREQUIRES="coinutils $OSIMOSEKLIB_PCREQUIRES"
+    OSIMOSEKLIB_CFLAGS="$COINUTILS_CFLAGS $OSIMOSEKLIB_CFLAGS"
+    OSIMOSEKLIB_LIBS="$COINUTILS_LIBS $OSIMOSEKLIB_LIBS"
+    OSIMOSEKLIB_CFLAGS_INSTALLED="$COINUTILS_CFLAGS_INSTALLED $OSIMOSEKLIB_CFLAGS_INSTALLED"
+    OSIMOSEKLIB_LIBS_INSTALLED="$COINUTILS_LIBS_INSTALLED $OSIMOSEKLIB_LIBS_INSTALLED"
 
 
 fi
@@ -21170,7 +21170,7 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      COINUTILS_DEPENDENCIES=`echo " $COINUTILS_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       OSIMOSEK_DEPENDENCIES=`echo " $OSIMOSEK_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+       OSIMOSEKLIB_DEPENDENCIES=`echo " $OSIMOSEKLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
   fi
 
@@ -21200,12 +21200,12 @@ echo "$as_me: CoinUtils PCLIBS are $COINUTILS_PCLIBS" >&6;}
 echo "$as_me: CoinUtils PCREQUIRES are $COINUTILS_PCREQUIRES" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&5
-echo "$as_me: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&5
-echo "$as_me: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&5
-echo "$as_me: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&5
+echo "$as_me: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&5
+echo "$as_me: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&5
+echo "$as_me: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -21292,13 +21292,13 @@ if test "${with_osi_lib+set}" = set; then
        OSI_LIBS="$withval"
        OSI_PCLIBS="$withval"
 
-         OSIMOSEK_PCLIBS="$withval $OSIMOSEK_PCLIBS"
-         OSIMOSEK_LIBS="$withval $OSIMOSEK_LIBS"
+         OSIMOSEKLIB_PCLIBS="$withval $OSIMOSEKLIB_PCLIBS"
+         OSIMOSEKLIB_LIBS="$withval $OSIMOSEKLIB_LIBS"
 
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSI_LIBS_INSTALLED="$withval"
-         OSIMOSEK_LIBS_INSTALLED="$withval $OSIMOSEK_LIBS_INSTALLED"
+         OSIMOSEKLIB_LIBS_INSTALLED="$withval $OSIMOSEKLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -21315,11 +21315,11 @@ if test "${with_osi_incdir+set}" = set; then
      else
        coin_has_osi=yes
        OSI_CFLAGS="-I`${CYGPATH_W} $withval`"
-       OSIMOSEK_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEK_CFLAGS"
+       OSIMOSEKLIB_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEKLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSI_CFLAGS_INSTALLED="$OSI_CFLAGS"
-         OSIMOSEK_CFLAGS_INSTALLED="$OSI_CFLAGS $OSIMOSEK_CFLAGS_INSTALLED"
+         OSIMOSEKLIB_CFLAGS_INSTALLED="$OSI_CFLAGS $OSIMOSEKLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -21383,11 +21383,11 @@ echo "${ECHO_T}yes: $OSI_VERSIONS" >&6
         fi
         OSI_PCREQUIRES="osi"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosek
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosekLib
 
-          OSIMOSEK_PCREQUIRES="osi $OSIMOSEK_PCREQUIRES"
-          OSIMOSEK_CFLAGS="$OSI_CFLAGS $OSIMOSEK_CFLAGS"
-          OSIMOSEK_LIBS="$OSI_LIBS $OSIMOSEK_LIBS"
+          OSIMOSEKLIB_PCREQUIRES="osi $OSIMOSEKLIB_PCREQUIRES"
+          OSIMOSEKLIB_CFLAGS="$OSI_CFLAGS $OSIMOSEKLIB_CFLAGS"
+          OSIMOSEKLIB_LIBS="$OSI_LIBS $OSIMOSEKLIB_LIBS"
 
 
 
@@ -21632,11 +21632,11 @@ _ACEOF
 
   OSI_PCREQUIRES="osi"
 
-    OSIMOSEK_PCREQUIRES="osi $OSIMOSEK_PCREQUIRES"
-    OSIMOSEK_CFLAGS="$OSI_CFLAGS $OSIMOSEK_CFLAGS"
-    OSIMOSEK_LIBS="$OSI_LIBS $OSIMOSEK_LIBS"
-    OSIMOSEK_CFLAGS_INSTALLED="$OSI_CFLAGS_INSTALLED $OSIMOSEK_CFLAGS_INSTALLED"
-    OSIMOSEK_LIBS_INSTALLED="$OSI_LIBS_INSTALLED $OSIMOSEK_LIBS_INSTALLED"
+    OSIMOSEKLIB_PCREQUIRES="osi $OSIMOSEKLIB_PCREQUIRES"
+    OSIMOSEKLIB_CFLAGS="$OSI_CFLAGS $OSIMOSEKLIB_CFLAGS"
+    OSIMOSEKLIB_LIBS="$OSI_LIBS $OSIMOSEKLIB_LIBS"
+    OSIMOSEKLIB_CFLAGS_INSTALLED="$OSI_CFLAGS_INSTALLED $OSIMOSEKLIB_CFLAGS_INSTALLED"
+    OSIMOSEKLIB_LIBS_INSTALLED="$OSI_LIBS_INSTALLED $OSIMOSEKLIB_LIBS_INSTALLED"
 
 
 fi
@@ -21685,7 +21685,7 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      OSI_DEPENDENCIES=`echo " $OSI_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       OSIMOSEK_DEPENDENCIES=`echo " $OSIMOSEK_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+       OSIMOSEKLIB_DEPENDENCIES=`echo " $OSIMOSEKLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
   fi
 
@@ -21715,12 +21715,12 @@ echo "$as_me: Osi PCLIBS are $OSI_PCLIBS" >&6;}
 echo "$as_me: Osi PCREQUIRES are $OSI_PCREQUIRES" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&5
-echo "$as_me: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&5
-echo "$as_me: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&5
-echo "$as_me: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&5
+echo "$as_me: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&5
+echo "$as_me: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&5
+echo "$as_me: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -21807,13 +21807,13 @@ if test "${with_osimsk_lib+set}" = set; then
        OSIMSK_LIBS="$withval"
        OSIMSK_PCLIBS="$withval"
 
-         OSIMOSEK_PCLIBS="$withval $OSIMOSEK_PCLIBS"
-         OSIMOSEK_LIBS="$withval $OSIMOSEK_LIBS"
+         OSIMOSEKLIB_PCLIBS="$withval $OSIMOSEKLIB_PCLIBS"
+         OSIMOSEKLIB_LIBS="$withval $OSIMOSEKLIB_LIBS"
 
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSIMSK_LIBS_INSTALLED="$withval"
-         OSIMOSEK_LIBS_INSTALLED="$withval $OSIMOSEK_LIBS_INSTALLED"
+         OSIMOSEKLIB_LIBS_INSTALLED="$withval $OSIMOSEKLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -21830,11 +21830,11 @@ if test "${with_osimsk_incdir+set}" = set; then
      else
        coin_has_osimsk=yes
        OSIMSK_CFLAGS="-I`${CYGPATH_W} $withval`"
-       OSIMOSEK_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEK_CFLAGS"
+       OSIMOSEKLIB_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEKLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSIMSK_CFLAGS_INSTALLED="$OSIMSK_CFLAGS"
-         OSIMOSEK_CFLAGS_INSTALLED="$OSIMSK_CFLAGS $OSIMOSEK_CFLAGS_INSTALLED"
+         OSIMOSEKLIB_CFLAGS_INSTALLED="$OSIMSK_CFLAGS $OSIMOSEKLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -21898,11 +21898,11 @@ echo "${ECHO_T}yes: $OSIMSK_VERSIONS" >&6
         fi
         OSIMSK_PCREQUIRES="osi-mosek"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosek
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosekLib
 
-          OSIMOSEK_PCREQUIRES="osi-mosek $OSIMOSEK_PCREQUIRES"
-          OSIMOSEK_CFLAGS="$OSIMSK_CFLAGS $OSIMOSEK_CFLAGS"
-          OSIMOSEK_LIBS="$OSIMSK_LIBS $OSIMOSEK_LIBS"
+          OSIMOSEKLIB_PCREQUIRES="osi-mosek $OSIMOSEKLIB_PCREQUIRES"
+          OSIMOSEKLIB_CFLAGS="$OSIMSK_CFLAGS $OSIMOSEKLIB_CFLAGS"
+          OSIMOSEKLIB_LIBS="$OSIMSK_LIBS $OSIMOSEKLIB_LIBS"
 
 
 
@@ -22147,11 +22147,11 @@ _ACEOF
 
   OSIMSK_PCREQUIRES="osi-mosek"
 
-    OSIMOSEK_PCREQUIRES="osi-mosek $OSIMOSEK_PCREQUIRES"
-    OSIMOSEK_CFLAGS="$OSIMSK_CFLAGS $OSIMOSEK_CFLAGS"
-    OSIMOSEK_LIBS="$OSIMSK_LIBS $OSIMOSEK_LIBS"
-    OSIMOSEK_CFLAGS_INSTALLED="$OSIMSK_CFLAGS_INSTALLED $OSIMOSEK_CFLAGS_INSTALLED"
-    OSIMOSEK_LIBS_INSTALLED="$OSIMSK_LIBS_INSTALLED $OSIMOSEK_LIBS_INSTALLED"
+    OSIMOSEKLIB_PCREQUIRES="osi-mosek $OSIMOSEKLIB_PCREQUIRES"
+    OSIMOSEKLIB_CFLAGS="$OSIMSK_CFLAGS $OSIMOSEKLIB_CFLAGS"
+    OSIMOSEKLIB_LIBS="$OSIMSK_LIBS $OSIMOSEKLIB_LIBS"
+    OSIMOSEKLIB_CFLAGS_INSTALLED="$OSIMSK_CFLAGS_INSTALLED $OSIMOSEKLIB_CFLAGS_INSTALLED"
+    OSIMOSEKLIB_LIBS_INSTALLED="$OSIMSK_LIBS_INSTALLED $OSIMOSEKLIB_LIBS_INSTALLED"
 
 
 fi
@@ -22200,7 +22200,7 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      OSIMSK_DEPENDENCIES=`echo " $OSIMSK_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       OSIMOSEK_DEPENDENCIES=`echo " $OSIMOSEK_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+       OSIMOSEKLIB_DEPENDENCIES=`echo " $OSIMOSEKLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
   fi
 
@@ -22230,12 +22230,12 @@ echo "$as_me: OsiMsk PCLIBS are $OSIMSK_PCLIBS" >&6;}
 echo "$as_me: OsiMsk PCREQUIRES are $OSIMSK_PCREQUIRES" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&5
-echo "$as_me: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&5
-echo "$as_me: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&5
-echo "$as_me: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&5
+echo "$as_me: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&5
+echo "$as_me: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&5
+echo "$as_me: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -22255,8 +22255,8 @@ fi
 
 
 if test $coin_has_osi != yes ; then
-  { { echo "$as_me:$LINENO: error: Required package Osi not available." >&5
-echo "$as_me: error: Required package Osi not available." >&2;}
+  { { echo "$as_me:$LINENO: error: Required package OsiMsk not available." >&5
+echo "$as_me: error: Required package OsiMsk not available." >&2;}
    { (exit 1); exit 1; }; }
 fi
 
@@ -22322,13 +22322,13 @@ if test "${with_osiconic_lib+set}" = set; then
        OSICONIC_LIBS="$withval"
        OSICONIC_PCLIBS="$withval"
 
-         OSIMOSEK_PCLIBS="$withval $OSIMOSEK_PCLIBS"
-         OSIMOSEK_LIBS="$withval $OSIMOSEK_LIBS"
+         OSIMOSEKLIB_PCLIBS="$withval $OSIMOSEKLIB_PCLIBS"
+         OSIMOSEKLIB_LIBS="$withval $OSIMOSEKLIB_LIBS"
 
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSICONIC_LIBS_INSTALLED="$withval"
-         OSIMOSEK_LIBS_INSTALLED="$withval $OSIMOSEK_LIBS_INSTALLED"
+         OSIMOSEKLIB_LIBS_INSTALLED="$withval $OSIMOSEKLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -22345,11 +22345,11 @@ if test "${with_osiconic_incdir+set}" = set; then
      else
        coin_has_osiconic=yes
        OSICONIC_CFLAGS="-I`${CYGPATH_W} $withval`"
-       OSIMOSEK_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEK_CFLAGS"
+       OSIMOSEKLIB_CFLAGS="-I`${CYGPATH_W} $withval` $OSIMOSEKLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          OSICONIC_CFLAGS_INSTALLED="$OSICONIC_CFLAGS"
-         OSIMOSEK_CFLAGS_INSTALLED="$OSICONIC_CFLAGS $OSIMOSEK_CFLAGS_INSTALLED"
+         OSIMOSEKLIB_CFLAGS_INSTALLED="$OSICONIC_CFLAGS $OSIMOSEKLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -22413,11 +22413,11 @@ echo "${ECHO_T}yes: $OSICONIC_VERSIONS" >&6
         fi
         OSICONIC_PCREQUIRES="osiconic"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosek
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in OsiMosekLib
 
-          OSIMOSEK_PCREQUIRES="osiconic $OSIMOSEK_PCREQUIRES"
-          OSIMOSEK_CFLAGS="$OSICONIC_CFLAGS $OSIMOSEK_CFLAGS"
-          OSIMOSEK_LIBS="$OSICONIC_LIBS $OSIMOSEK_LIBS"
+          OSIMOSEKLIB_PCREQUIRES="osiconic $OSIMOSEKLIB_PCREQUIRES"
+          OSIMOSEKLIB_CFLAGS="$OSICONIC_CFLAGS $OSIMOSEKLIB_CFLAGS"
+          OSIMOSEKLIB_LIBS="$OSICONIC_LIBS $OSIMOSEKLIB_LIBS"
 
 
 
@@ -22662,11 +22662,11 @@ _ACEOF
 
   OSICONIC_PCREQUIRES="osiconic"
 
-    OSIMOSEK_PCREQUIRES="osiconic $OSIMOSEK_PCREQUIRES"
-    OSIMOSEK_CFLAGS="$OSICONIC_CFLAGS $OSIMOSEK_CFLAGS"
-    OSIMOSEK_LIBS="$OSICONIC_LIBS $OSIMOSEK_LIBS"
-    OSIMOSEK_CFLAGS_INSTALLED="$OSICONIC_CFLAGS_INSTALLED $OSIMOSEK_CFLAGS_INSTALLED"
-    OSIMOSEK_LIBS_INSTALLED="$OSICONIC_LIBS_INSTALLED $OSIMOSEK_LIBS_INSTALLED"
+    OSIMOSEKLIB_PCREQUIRES="osiconic $OSIMOSEKLIB_PCREQUIRES"
+    OSIMOSEKLIB_CFLAGS="$OSICONIC_CFLAGS $OSIMOSEKLIB_CFLAGS"
+    OSIMOSEKLIB_LIBS="$OSICONIC_LIBS $OSIMOSEKLIB_LIBS"
+    OSIMOSEKLIB_CFLAGS_INSTALLED="$OSICONIC_CFLAGS_INSTALLED $OSIMOSEKLIB_CFLAGS_INSTALLED"
+    OSIMOSEKLIB_LIBS_INSTALLED="$OSICONIC_LIBS_INSTALLED $OSIMOSEKLIB_LIBS_INSTALLED"
 
 
 fi
@@ -22715,7 +22715,7 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      OSICONIC_DEPENDENCIES=`echo " $OSICONIC_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       OSIMOSEK_DEPENDENCIES=`echo " $OSIMOSEK_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+       OSIMOSEKLIB_DEPENDENCIES=`echo " $OSIMOSEKLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
   fi
 
@@ -22745,12 +22745,12 @@ echo "$as_me: OsiConic PCLIBS are $OSICONIC_PCLIBS" >&6;}
 echo "$as_me: OsiConic PCREQUIRES are $OSICONIC_PCREQUIRES" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&5
-echo "$as_me: OsiMosek CFLAGS are $OSIMOSEK_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&5
-echo "$as_me: OsiMosek LIBS   are $OSIMOSEK_LIBS" >&6;}
-      { echo "$as_me:$LINENO: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&5
-echo "$as_me: OsiMosek DEPENDENCIES are $OSIMOSEK_DEPENDENCIES" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&5
+echo "$as_me: OsiMosekLib CFLAGS are $OSIMOSEKLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&5
+echo "$as_me: OsiMosekLib LIBS   are $OSIMOSEKLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&5
+echo "$as_me: OsiMosekLib DEPENDENCIES are $OSIMOSEKLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -22953,7 +22953,7 @@ fi
 
 coin_doxy_tagfiles=
 coin_doxy_excludes=
-tmp="CoinUtils Osi OsiConic"
+tmp="CoinUtils Osi OsiMsk OsiConic"
 for proj in $tmp ; do
   lc_proj=`echo $proj | tr [A-Z] [a-z]`
   echo "$as_me:$LINENO: checking for doxygen doc'n for $proj " >&5
@@ -23961,13 +23961,13 @@ s,@COINUTILS_DEPENDENCIES@,$COINUTILS_DEPENDENCIES,;t t
 s,@COINUTILS_LIBS_INSTALLED@,$COINUTILS_LIBS_INSTALLED,;t t
 s,@COINUTILS_CFLAGS_INSTALLED@,$COINUTILS_CFLAGS_INSTALLED,;t t
 s,@COINUTILS_DATA_INSTALLED@,$COINUTILS_DATA_INSTALLED,;t t
-s,@OSIMOSEK_CFLAGS@,$OSIMOSEK_CFLAGS,;t t
-s,@OSIMOSEK_LIBS@,$OSIMOSEK_LIBS,;t t
-s,@OSIMOSEK_PCLIBS@,$OSIMOSEK_PCLIBS,;t t
-s,@OSIMOSEK_PCREQUIRES@,$OSIMOSEK_PCREQUIRES,;t t
-s,@OSIMOSEK_DEPENDENCIES@,$OSIMOSEK_DEPENDENCIES,;t t
-s,@OSIMOSEK_CFLAGS_INSTALLED@,$OSIMOSEK_CFLAGS_INSTALLED,;t t
-s,@OSIMOSEK_LIBS_INSTALLED@,$OSIMOSEK_LIBS_INSTALLED,;t t
+s,@OSIMOSEKLIB_CFLAGS@,$OSIMOSEKLIB_CFLAGS,;t t
+s,@OSIMOSEKLIB_LIBS@,$OSIMOSEKLIB_LIBS,;t t
+s,@OSIMOSEKLIB_PCLIBS@,$OSIMOSEKLIB_PCLIBS,;t t
+s,@OSIMOSEKLIB_PCREQUIRES@,$OSIMOSEKLIB_PCREQUIRES,;t t
+s,@OSIMOSEKLIB_DEPENDENCIES@,$OSIMOSEKLIB_DEPENDENCIES,;t t
+s,@OSIMOSEKLIB_CFLAGS_INSTALLED@,$OSIMOSEKLIB_CFLAGS_INSTALLED,;t t
+s,@OSIMOSEKLIB_LIBS_INSTALLED@,$OSIMOSEKLIB_LIBS_INSTALLED,;t t
 s,@COIN_HAS_COINUTILS_TRUE@,$COIN_HAS_COINUTILS_TRUE,;t t
 s,@COIN_HAS_COINUTILS_FALSE@,$COIN_HAS_COINUTILS_FALSE,;t t
 s,@OSI_LIBS@,$OSI_LIBS,;t t
