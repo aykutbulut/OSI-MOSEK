@@ -1,3 +1,13 @@
+# autotools auxilary files
+/autom4te.cache
+/compile
+/stamp-h1
+
+# math modeling input output files
+*.gz
+*.int
+
+
 # Compiled Object files
 *.slo
 *.lo
@@ -26,3 +36,16 @@
 *.exe
 *.out
 *.app
+
+# emacs backup files
+*~
+
+# external projects
+/BuildTools/*
+/CoinUtils/*
+/Osi/*
+/OsiConic/*
+/Clp/*
+/build/*
+/Data/*
+/ThirdParty/*
