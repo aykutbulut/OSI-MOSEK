@@ -74,6 +74,13 @@ if test $coin_has_osiconic != yes ; then
   AC_MSG_ERROR([Required package OsiConic not available.])
 fi
 
+##############################################################################
+#                   VPATH links for example input files                      #
+##############################################################################
+# In case this is a VPATH configuration we need to make sure that the
+# input files for the examples are available in the VPATH directory.
+AC_COIN_VPATH_LINK(examples/input.mps)
+
 #############################################################################
 #                  Check for doxygen                                        #
 #############################################################################
@@ -85,6 +92,7 @@ AC_COIN_DOXYGEN(CoinUtils Osi OsiMsk OsiConic)
 # Here list all the files that configure should create (except for the
 # configuration header file)
 AC_CONFIG_FILES([Makefile
+	         examples/Makefile
                  src/Makefile
                  osimosek.pc
                  osimosek-uninstalled.pc])

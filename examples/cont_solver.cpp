@@ -1,3 +1,6 @@
+// Solves conic problems, reads them in mosek mps input format
+// usage: ./cont_solver input.mps
+
 #include <OsiMosekSolverInterface.hpp>
 #include <iostream>
 #include <iomanip>
