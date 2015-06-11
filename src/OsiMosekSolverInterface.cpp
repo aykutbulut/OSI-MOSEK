@@ -5,17 +5,41 @@
 
 // default constructor
 OsiMosekSolverInterface::OsiMosekSolverInterface(): OsiMskSolverInterface() {
+  // set number of thread to 1.
+  MSKrescodee res;
+  MSKtask_t task = getLpPtr();
+  res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
 }
 
 // copy constructor
 OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiMosekSolverInterface & other):
   OsiMskSolverInterface(other) {
+  // set number of thread to 1.
+  MSKrescodee res;
+  MSKtask_t task = getLpPtr();
+  res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
 }
 
 // copy assignment operator
 OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolverInterface & rhs) {
   // copy rhs to this
   OsiMskSolverInterface::operator=(rhs);
+  // set number of thread to 1.
+  MSKrescodee res;
+  MSKtask_t task = getLpPtr();
+  res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
   return *this;
 }
 
@@ -31,6 +55,13 @@ void OsiMosekSolverInterface::getConicConstraint(int index,
   double conepar;
   int nummem;
   int * submem;
+  // get cone size
+  res = MSK_getconeinfo(task, index, &conetype, &conepar, &nummem);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
+  submem = new int[nummem];
   // get conic constraint
   res = MSK_getcone(task, index, &conetype, &conepar, &nummem, submem);
   if (res!=MSK_RES_OK) {
@@ -47,6 +78,7 @@ void OsiMosekSolverInterface::getConicConstraint(int index,
   else if (conetype==MSK_CT_RQUAD) {
     type = OSI_RQUAD;
   }
+  delete[] submem;
 }
 
 // add conic constraint in lorentz cone form
