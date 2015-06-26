@@ -249,6 +249,20 @@ int OsiMosekSolverInterface::readMps(const char * filename,
   // what will happen to loadProblem?
 }
 
+void OsiMosekSolverInterface::writeMps (const char *filename, const char *extension,
+					double objSense) const {
+  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  MSKrescodee res;
+  std::string fn = std::string(filename)+std::string(".")
+    +std::string(extension);
+  res = MSK_writedata(task, (char const *) fn.c_str());
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
+}
+
+
 // void OsiMosekSolverInterface::loadProblem (const CoinPackedMatrix &matrix,
 // 					   const double *collb,
 // 					   const double *colub,

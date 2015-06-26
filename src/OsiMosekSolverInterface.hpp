@@ -41,7 +41,8 @@ public:
   virtual void getConeType(OsiLorentzConeType * type) const;
   virtual OsiConicSolverInterface * clone(bool copyData=true) const;
   virtual int readMps(const char * filename, const char * extension="mps");
-
+  virtual void writeMps (const char *filename, const char *extension="mps",
+			 double objSense=0.0) const;
 
   // inherited from OsiMskSolverInterface <- OsiSolverInterface
   // virtual void loadProblem (const CoinPackedMatrix &matrix, const double *collb,
