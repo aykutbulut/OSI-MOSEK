@@ -8,7 +8,7 @@ inc_dir=${build_dir%%/}/include
 lib_dir=${build_dir%%/}/lib
 pkg_dir=${lib_dir%%/}/pkgconfig
 PKG_CONFIG_PATH=${pkg_dir}:$PKG_CONFIG_PATH
-export CXXFLAGS=-std=c++11
+export CXXFLAGS="-std=c++11 -g"
 # configure and install CoinUtils
 mkdir CoinUtils
 cd CoinUtils
