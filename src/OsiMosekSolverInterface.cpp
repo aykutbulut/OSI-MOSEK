@@ -87,7 +87,7 @@ void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
 					       const int * members) {
   MSKrescodee res;
   MSKconetypee conetype;
-  MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  MSKtask_t task = OsiMskSolverInterface::getLpPtr();
   double conepar = 0.0;
   if (type==OSI_QUAD) {
     conetype = MSK_CT_QUAD;
