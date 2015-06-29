@@ -57,6 +57,8 @@ public:
   virtual bool isPrimalObjectiveLimitReached () const;
   virtual bool isDualObjectiveLimitReached () const;
   virtual bool isIterationLimitReached () const;
+  // SOLUTION QUERRY FUNCTIONS
+  virtual double const * getColSolution () const;
   // CONSTRUCTORS
   //OsiMosekSolverInterface();
   // copy constructor

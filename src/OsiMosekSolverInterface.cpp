@@ -361,3 +361,30 @@ bool OsiMosekSolverInterface::isIterationLimitReached () const {
   // return false for now.
   return false;
 }
+
+const double * OsiMosekSolverInterface::getColSolution () const {
+  MSKtask_t task = getMutableLpPtr();
+  MSKrescodee res;
+  int num_cols = getNumCols();
+  if (colsol_) {
+    delete[] colsol_;
+  }
+  colsol_ = new double[num_cols];
+  res = MSK_getsolution(task,
+			MSK_SOL_ITR,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			colsol_,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL
+			);
+  return colsol_;
+}
