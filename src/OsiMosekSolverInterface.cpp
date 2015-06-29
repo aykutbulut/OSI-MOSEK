@@ -262,6 +262,18 @@ void OsiMosekSolverInterface::writeMps (const char *filename, const char *extens
   }
 }
 
+void OsiMosekSolverInterface::markHotStart() {
+  // do nothing. no hot start for conic problems
+}
+
+void OsiMosekSolverInterface::solveFromHotStart() {
+  // solve from scratch
+  resolve();
+}
+
+void OsiMosekSolverInterface::unmarkHotStart() {
+  // do nothing.
+}
 
 // void OsiMosekSolverInterface::loadProblem (const CoinPackedMatrix &matrix,
 // 					   const double *collb,
