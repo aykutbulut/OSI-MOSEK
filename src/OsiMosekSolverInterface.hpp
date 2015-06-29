@@ -43,19 +43,13 @@ public:
   virtual int readMps(const char * filename, const char * extension="mps");
   virtual void writeMps (const char *filename, const char *extension="mps",
 			 double objSense=0.0) const;
-
   // hot start methods
   // over-write linear mosek solver interface functions
   virtual void markHotStart();
   virtual void solveFromHotStart();
   virtual void unmarkHotStart();
-
-  // inherited from OsiMskSolverInterface <- OsiSolverInterface
-  // virtual void loadProblem (const CoinPackedMatrix &matrix, const double *collb,
-  // 			    const double *colub, const double *obj,
-  // 			    const double *rowlb, const double *rowub);
-  //virtual void initialSolve();
-  //virtual void resolve();
+  virtual void initialSolve();
+  virtual void resolve();
   // CONSTRUCTORS
   //OsiMosekSolverInterface();
   // copy constructor

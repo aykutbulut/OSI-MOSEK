@@ -3,16 +3,41 @@
 #include <mosek.h>
 #include <algorithm>
 
+// todo(aykut)
+// error check routine. Copied from OsiMskSolverInterface.
+// I am not sure whether this is a license violation. This
+// may be removed/replaced in future.
+// I would not experince any problem if this function was not static
+// in OsiMskSolverInterface. Since it is not I have to copy it here
+// and create redundancy.
+static inline void
+checkMSKerror( int err, std::string mskfuncname, std::string osimethod )
+{
+  if( err != MSK_RES_OK )
+  {
+    char s[100];
+    sprintf( s, "%s returned error %d", mskfuncname.c_str(), err );
+    std::cout << "ERROR: " << s << " (" << osimethod <<
+    " in OsiMskSolverInterface)" << std::endl;
+    throw CoinError( s, osimethod.c_str(), "OsiMskSolverInterface" );
+  }
+}
+
+
 // default constructor
 OsiMosekSolverInterface::OsiMosekSolverInterface(): OsiMskSolverInterface() {
   // set number of thread to 1.
   MSKrescodee res;
   MSKtask_t task = getLpPtr();
+  // set number of threads to 1
   res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // ignore integrality constraints
+  res = MSK_putintparam(task, MSK_IPAR_MIO_MODE, MSK_MIO_MODE_IGNORED);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // set optimizer to conic
+  res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
 }
 
 // copy constructor
@@ -21,11 +46,15 @@ OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiMosekSolverInterface &
   // set number of thread to 1.
   MSKrescodee res;
   MSKtask_t task = getLpPtr();
+  // set number of threads to 1
   res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // ignore integrality constraints
+  res = MSK_putintparam(task, MSK_IPAR_MIO_MODE, MSK_MIO_MODE_IGNORED);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // set optimizer to conic
+  res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
 }
 
 // copy assignment operator
@@ -35,11 +64,15 @@ OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolve
   // set number of thread to 1.
   MSKrescodee res;
   MSKtask_t task = getLpPtr();
+  // set number of threads to 1
   res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // ignore integrality constraints
+  res = MSK_putintparam(task, MSK_IPAR_MIO_MODE, MSK_MIO_MODE_IGNORED);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // set optimizer to conic
+  res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
   return *this;
 }
 
@@ -57,17 +90,11 @@ void OsiMosekSolverInterface::getConicConstraint(int index,
   int * submem;
   // get cone size
   res = MSK_getconeinfo(task, index, &conetype, &conepar, &nummem);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_getconeinfo", "getConicConstraints");
   submem = new int[nummem];
   // get conic constraint
   res = MSK_getcone(task, index, &conetype, &conepar, &nummem, submem);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_getcone", "getConicConstraints");
   numMembers = nummem;
   // who will free members?
   members = new int[numMembers];
@@ -96,10 +123,7 @@ void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
     conetype = MSK_CT_RQUAD;
   }
   res = MSK_appendcone(task, conetype, conepar, numMembers, members);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_appendcone", "addConicConstraint");
 }
 
 // add conic constraint in |Ax-b| <= dx-h form
@@ -120,6 +144,7 @@ void OsiMosekSolverInterface::removeConicConstraint(int index) {
   subset = new int[1];
   subset[0] = index;
   res = MSK_removecones(task, num, subset);
+  checkMSKerror(res, "MSK_removecones", "removeConicConstraint");
   delete[] subset;
 }
 
@@ -137,10 +162,7 @@ int OsiMosekSolverInterface::getNumCones() const {
   MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   int num;
   res = MSK_getnumcone(task, &num);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_getnumcone", "getNumCones");
   return num;
 }
 
@@ -152,10 +174,7 @@ int OsiMosekSolverInterface::getConeSize(int i) const {
   int nummem;
   // get conic constraint information
   res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_getconeinfo", "getConeSize");
   return nummem;
 }
 
@@ -179,10 +198,7 @@ OsiLorentzConeType OsiMosekSolverInterface::getLorentzConeType(int i) const {
   OsiLorentzConeType type;
   // get conic constraint information
   res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_getconeinfo", "getLorentzConeType");
   if (conetype==MSK_CT_QUAD) {
     type = OSI_QUAD;
   }
@@ -208,10 +224,7 @@ void OsiMosekSolverInterface::getConeSize(int * size) const {
   for (int i=0; i<num_cones; ++i) {
     // get conic constraint information
     res = MSK_getconeinfo(task, i, &conetype, &conepar, &nummem);
-    if (res!=MSK_RES_OK) {
-      std::cerr << "Mosek status " << res << std::endl;
-      throw std::exception();
-    }
+    checkMSKerror(res, "MSK_getconeinfo", "getConeSize");
     size[i] = nummem;
   }
 }
@@ -256,10 +269,7 @@ void OsiMosekSolverInterface::writeMps (const char *filename, const char *extens
   std::string fn = std::string(filename)+std::string(".")
     +std::string(extension);
   res = MSK_writedata(task, (char const *) fn.c_str());
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
+  checkMSKerror(res, "MSK_writedata", "writeMps");
 }
 
 void OsiMosekSolverInterface::markHotStart() {
@@ -275,35 +285,25 @@ void OsiMosekSolverInterface::unmarkHotStart() {
   // do nothing.
 }
 
-// void OsiMosekSolverInterface::loadProblem (const CoinPackedMatrix &matrix,
-// 					   const double *collb,
-// 					   const double *colub,
-// 					   const double *obj,
-// 					   const double *rowlb,
-// 					   const double *rowub) {
-//   OsiMskSolverInterface::loadProblem(matrix, collb, colub, obj, rowlb, rowub);
-// }
+// solve continuous problem. ignore discrete variables if any
+void OsiMosekSolverInterface::initialSolve() {
+  MSKrescodee res;
+  MSKtask_t task = OsiMskSolverInterface::getLpPtr();
+  // MSK MIO MODE IGNORED
+  // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_FREE);
+  // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_MIXED_INT_CONIC);
+  // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_INTPNT);
+  MSKrescodee trmcode;
+  /* Run optimizer */
+  res = MSK_optimizetrm(task,&trmcode);
+  if (res!=MSK_RES_OK) {
+    std::cerr << "Mosek status " << res << std::endl;
+    throw std::exception();
+  }
+  // todo(aykut) update optimization status using trmcode.
+}
 
-// OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiMosekSolverInterface & other) {
-//   OsiMosekSolver
-// }
-
-// OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiMskSolverInterface & other) {
-//   OsiSolverInterface * solver = other->clone();
-
-// }
-
-// void OsiMosekSolverInterface::initialSolve() {
-//   MSKrescodee res;
-//   MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
-//   res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
-//   res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_INTPNT);
-//   MSKrescodee trmcode;
-//   /* Run optimizer */
-//   res = MSK_optimizetrm(task,&trmcode);
-// }
-
-// void OsiMosekSolverInterface::resolve() {
-//   initialSolve();
-// }
+void OsiMosekSolverInterface::resolve() {
+  initialSolve();
+}
 
