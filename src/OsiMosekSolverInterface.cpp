@@ -23,7 +23,6 @@ checkMSKerror( int err, std::string mskfuncname, std::string osimethod )
   }
 }
 
-
 // default constructor
 OsiMosekSolverInterface::OsiMosekSolverInterface(): OsiMskSolverInterface() {
   // set number of thread to 1.
@@ -135,7 +134,6 @@ void OsiMosekSolverInterface::addConicConstraint(CoinPackedMatrix const * A,
   throw std::exception();
 }
 
-
 void OsiMosekSolverInterface::removeConicConstraint(int index) {
   MSKrescodee res;
   MSKtask_t task = OsiMskSolverInterface::getLpPtr();
@@ -155,7 +153,6 @@ void OsiMosekSolverInterface::modifyConicConstraint(int index,
   std::cerr << "Not implemented yet!" << std::cerr;
   throw std::exception();
 }
-
 
 int OsiMosekSolverInterface::getNumCones() const {
   MSKrescodee res;
@@ -288,22 +285,79 @@ void OsiMosekSolverInterface::unmarkHotStart() {
 // solve continuous problem. ignore discrete variables if any
 void OsiMosekSolverInterface::initialSolve() {
   MSKrescodee res;
-  MSKtask_t task = OsiMskSolverInterface::getLpPtr();
+  MSKtask_t task = getLpPtr();
   // MSK MIO MODE IGNORED
   // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_FREE);
   // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_MIXED_INT_CONIC);
   // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_INTPNT);
   MSKrescodee trmcode;
   /* Run optimizer */
-  res = MSK_optimizetrm(task,&trmcode);
-  if (res!=MSK_RES_OK) {
-    std::cerr << "Mosek status " << res << std::endl;
-    throw std::exception();
-  }
-  // todo(aykut) update optimization status using trmcode.
+  res = MSK_optimizetrm(task, &trmcode);
+  checkMSKerror(res, "MSK_optimizetrm", "initialSolve");
 }
 
 void OsiMosekSolverInterface::resolve() {
   initialSolve();
 }
 
+bool OsiMosekSolverInterface::isAbandoned () const {
+  MSKtask_t task = getMutableLpPtr();
+  MSKrescodee res;
+  MSKsolstae solsta;
+  res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
+  checkMSKerror(res, "MSK_getsolsta", "isAbandoned");
+  return (solsta==MSK_SOL_STA_UNKNOWN);
+}
+
+bool OsiMosekSolverInterface::isProvenOptimal () const {
+  MSKtask_t task = getMutableLpPtr();
+  MSKrescodee res;
+  MSKsolstae solsta;
+  res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
+  checkMSKerror(res, "MSK_getsolsta", "isProvenOptimal");
+  return (solsta==MSK_SOL_STA_OPTIMAL ||
+	  solsta==MSK_SOL_STA_INTEGER_OPTIMAL ||
+	  solsta==MSK_SOL_STA_NEAR_OPTIMAL ||
+	  solsta==MSK_SOL_STA_NEAR_INTEGER_OPTIMAL);
+}
+
+bool OsiMosekSolverInterface::isProvenPrimalInfeasible () const {
+  MSKtask_t task = getMutableLpPtr();
+  MSKrescodee res;
+  MSKsolstae solsta;
+  res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
+  checkMSKerror(res, "MSK_getsolsta", "isProvenPrimalInfeasible");
+  return (solsta==MSK_SOL_STA_PRIM_INFEAS_CER ||
+	  solsta==MSK_SOL_STA_NEAR_PRIM_INFEAS_CER);
+}
+
+bool OsiMosekSolverInterface::isProvenDualInfeasible () const {
+  MSKtask_t task = getMutableLpPtr();
+  MSKrescodee res;
+  MSKsolstae solsta;
+  res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
+  checkMSKerror(res, "MSK_getsolsta", "isProvenDualInfeasible");
+  return (solsta==MSK_SOL_STA_DUAL_INFEAS_CER ||
+	  solsta==MSK_SOL_STA_NEAR_DUAL_INFEAS_CER);
+}
+
+bool OsiMosekSolverInterface::isPrimalObjectiveLimitReached () const {
+  // these are given by the respose code res and
+  // if res is not OK we throw exception.
+  // return false for now.
+  return false;
+}
+
+bool OsiMosekSolverInterface::isDualObjectiveLimitReached () const {
+  // these are given by the respose code res and
+  // if res is not OK we throw exception.
+  // return false for now.
+  return false;
+}
+
+bool OsiMosekSolverInterface::isIterationLimitReached () const {
+  // these are given by the respose code res and
+  // if res is not OK we throw exception.
+  // return false for now.
+  return false;
+}

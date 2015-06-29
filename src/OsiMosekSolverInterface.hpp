@@ -7,7 +7,6 @@
 
 class OsiMosekSolverInterface: virtual public OsiConicSolverInterface,
 			       virtual public OsiMskSolverInterface {
-
   OsiLorentzConeType getLorentzConeType(int i) const;
 public:
   // default constructor
@@ -50,6 +49,14 @@ public:
   virtual void unmarkHotStart();
   virtual void initialSolve();
   virtual void resolve();
+  // PROBLEM STATUS QUERRY FUNCTIONS
+  virtual bool isAbandoned () const;
+  virtual bool isProvenOptimal () const;
+  virtual bool isProvenPrimalInfeasible () const;
+  virtual bool isProvenDualInfeasible () const;
+  virtual bool isPrimalObjectiveLimitReached () const;
+  virtual bool isDualObjectiveLimitReached () const;
+  virtual bool isIterationLimitReached () const;
   // CONSTRUCTORS
   //OsiMosekSolverInterface();
   // copy constructor
