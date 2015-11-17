@@ -23,6 +23,13 @@ checkMSKerror( int err, std::string mskfuncname, std::string osimethod )
   }
 }
 
+// suppress output
+static void MSKAPI printstr(void *handle,
+			    MSKCONST char str[]) {
+  //printf("%s",str);
+} /* printstr */
+
+
 // default constructor
 OsiMosekSolverInterface::OsiMosekSolverInterface(): OsiMskSolverInterface() {
   // set number of thread to 1.
@@ -37,6 +44,8 @@ OsiMosekSolverInterface::OsiMosekSolverInterface(): OsiMskSolverInterface() {
   // set optimizer to conic
   res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
   checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // suppress output
+  res = MSK_linkfunctotaskstream(task, MSK_STREAM_LOG, NULL, printstr);
 }
 
 // copy constructor
@@ -78,8 +87,8 @@ OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolve
 // get conic constraints
 void OsiMosekSolverInterface::getConicConstraint(int index,
 						 OsiLorentzConeType & type,
-                                                 int & numMembers,
-                                                 int *& members) const {
+						 int & numMembers,
+						 int *& members) const {
   //const MSKenv_t env = OsiMskSolverInterface::getEnvironmentPtr();
   const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   MSKrescodee res;
@@ -180,7 +189,7 @@ OsiConeType OsiMosekSolverInterface::getConeType(int i) const {
   int num_cones = getNumCones();
   if (i>=num_cones) {
     std::cerr << __PRETTY_FUNCTION__ << "Cone " << i << " does not exist!"
-              << std::endl;
+	      << std::endl;
     throw std::exception();
   }
   return OSI_LORENTZ;
@@ -204,7 +213,7 @@ OsiLorentzConeType OsiMosekSolverInterface::getLorentzConeType(int i) const {
   }
   else {
     std::cerr << __PRETTY_FUNCTION__ << " Unknown mosek cone type!"
-              << std::endl;
+	      << std::endl;
     throw std::exception();
   }
   return type;
