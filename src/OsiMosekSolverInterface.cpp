@@ -25,7 +25,7 @@ checkMSKerror( int err, std::string mskfuncname, std::string osimethod )
 
 // suppress output
 static void MSKAPI printstr(void *handle,
-			    MSKCONST char str[]) {
+                            MSKCONST char str[]) {
   //printf("%s",str);
 } /* printstr */
 
@@ -86,11 +86,11 @@ OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolve
 
 // get conic constraints
 void OsiMosekSolverInterface::getConicConstraint(int index,
-						 OsiLorentzConeType & type,
-						 int & numMembers,
-						 int *& members) const {
+                                                 OsiLorentzConeType & type,
+                                                 int & numMembers,
+                                                 int *& members) const {
   //const MSKenv_t env = OsiMskSolverInterface::getEnvironmentPtr();
-  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  const MSKtask_t task = getMutableLpPtr();
   MSKrescodee res;
   MSKconetypee conetype;
   double conepar;
@@ -118,11 +118,11 @@ void OsiMosekSolverInterface::getConicConstraint(int index,
 
 // add conic constraint in lorentz cone form
 void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
-					       int numMembers,
-					       const int * members) {
+                                               int numMembers,
+                                               const int * members) {
   MSKrescodee res;
   MSKconetypee conetype;
-  MSKtask_t task = OsiMskSolverInterface::getLpPtr();
+  MSKtask_t task = getLpPtr();
   double conepar = 0.0;
   if (type==OSI_QUAD) {
     conetype = MSK_CT_QUAD;
@@ -136,16 +136,16 @@ void OsiMosekSolverInterface::addConicConstraint(OsiLorentzConeType type,
 
 // add conic constraint in |Ax-b| <= dx-h form
 void OsiMosekSolverInterface::addConicConstraint(CoinPackedMatrix const * A,
-						 CoinPackedVector const * b,
-						 CoinPackedVector const * d,
-						 double h) {
+                                                 CoinPackedVector const * b,
+                                                 CoinPackedVector const * d,
+                                                 double h) {
   std::cerr << "Not implemented yet!" << std::cerr;
   throw std::exception();
 }
 
 void OsiMosekSolverInterface::removeConicConstraint(int index) {
   MSKrescodee res;
-  MSKtask_t task = OsiMskSolverInterface::getLpPtr();
+  MSKtask_t task = getLpPtr();
   int num = 1;
   int * subset;
   subset = new int[1];
@@ -156,16 +156,16 @@ void OsiMosekSolverInterface::removeConicConstraint(int index) {
 }
 
 void OsiMosekSolverInterface::modifyConicConstraint(int index,
-						    OsiLorentzConeType type,
-						    int numMembers,
-						    const int * members) {
+                                                    OsiLorentzConeType type,
+                                                    int numMembers,
+                                                    const int * members) {
   std::cerr << "Not implemented yet!" << std::cerr;
   throw std::exception();
 }
 
 int OsiMosekSolverInterface::getNumCones() const {
   MSKrescodee res;
-  MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  const MSKtask_t task = getMutableLpPtr();
   int num;
   res = MSK_getnumcone(task, &num);
   checkMSKerror(res, "MSK_getnumcone", "getNumCones");
@@ -173,7 +173,7 @@ int OsiMosekSolverInterface::getNumCones() const {
 }
 
 int OsiMosekSolverInterface::getConeSize(int i) const {
-  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  const MSKtask_t task = getMutableLpPtr();
   MSKrescodee res;
   MSKconetypee conetype;
   double conepar;
@@ -189,14 +189,14 @@ OsiConeType OsiMosekSolverInterface::getConeType(int i) const {
   int num_cones = getNumCones();
   if (i>=num_cones) {
     std::cerr << __PRETTY_FUNCTION__ << "Cone " << i << " does not exist!"
-	      << std::endl;
+              << std::endl;
     throw std::exception();
   }
   return OSI_LORENTZ;
 }
 
 OsiLorentzConeType OsiMosekSolverInterface::getLorentzConeType(int i) const {
-  const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
+  const MSKtask_t task = getMutableLpPtr();
   MSKrescodee res;
   MSKconetypee conetype;
   double conepar;
@@ -213,7 +213,7 @@ OsiLorentzConeType OsiMosekSolverInterface::getLorentzConeType(int i) const {
   }
   else {
     std::cerr << __PRETTY_FUNCTION__ << " Unknown mosek cone type!"
-	      << std::endl;
+              << std::endl;
     throw std::exception();
   }
   return type;
@@ -262,14 +262,14 @@ OsiMosekSolverInterface::~OsiMosekSolverInterface() {
 }
 
 int OsiMosekSolverInterface::readMps(const char * filename,
-				     const char * extension) {
+                                     const char * extension) {
   // todo(aykut) this reads linear part and conic part
   OsiConicSolverInterface::readMps(filename, extension);
   // what will happen to loadProblem?
 }
 
 void OsiMosekSolverInterface::writeMps (const char *filename, const char *extension,
-					double objSense) const {
+                                        double objSense) const {
   const MSKtask_t task = OsiMskSolverInterface::getMutableLpPtr();
   MSKrescodee res;
   std::string fn = std::string(filename)+std::string(".")
@@ -294,7 +294,7 @@ void OsiMosekSolverInterface::unmarkHotStart() {
 // solve continuous problem. ignore discrete variables if any
 void OsiMosekSolverInterface::initialSolve() {
   MSKrescodee res;
-  MSKtask_t task = getLpPtr();
+  MSKtask_t task = getMutableLpPtr();
   // MSK MIO MODE IGNORED
   // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_FREE);
   // res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_MIXED_INT_CONIC);
@@ -325,9 +325,9 @@ bool OsiMosekSolverInterface::isProvenOptimal () const {
   res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
   checkMSKerror(res, "MSK_getsolsta", "isProvenOptimal");
   return (solsta==MSK_SOL_STA_OPTIMAL ||
-	  solsta==MSK_SOL_STA_INTEGER_OPTIMAL ||
-	  solsta==MSK_SOL_STA_NEAR_OPTIMAL ||
-	  solsta==MSK_SOL_STA_NEAR_INTEGER_OPTIMAL);
+          solsta==MSK_SOL_STA_INTEGER_OPTIMAL ||
+          solsta==MSK_SOL_STA_NEAR_OPTIMAL ||
+          solsta==MSK_SOL_STA_NEAR_INTEGER_OPTIMAL);
 }
 
 bool OsiMosekSolverInterface::isProvenPrimalInfeasible () const {
@@ -337,7 +337,7 @@ bool OsiMosekSolverInterface::isProvenPrimalInfeasible () const {
   res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
   checkMSKerror(res, "MSK_getsolsta", "isProvenPrimalInfeasible");
   return (solsta==MSK_SOL_STA_PRIM_INFEAS_CER ||
-	  solsta==MSK_SOL_STA_NEAR_PRIM_INFEAS_CER);
+          solsta==MSK_SOL_STA_NEAR_PRIM_INFEAS_CER);
 }
 
 bool OsiMosekSolverInterface::isProvenDualInfeasible () const {
@@ -347,7 +347,7 @@ bool OsiMosekSolverInterface::isProvenDualInfeasible () const {
   res = MSK_getsolsta(task, MSK_SOL_ITR, &solsta);
   checkMSKerror(res, "MSK_getsolsta", "isProvenDualInfeasible");
   return (solsta==MSK_SOL_STA_DUAL_INFEAS_CER ||
-	  solsta==MSK_SOL_STA_NEAR_DUAL_INFEAS_CER);
+          solsta==MSK_SOL_STA_NEAR_DUAL_INFEAS_CER);
 }
 
 bool OsiMosekSolverInterface::isPrimalObjectiveLimitReached () const {
@@ -380,20 +380,20 @@ const double * OsiMosekSolverInterface::getColSolution () const {
   }
   colsol_ = new double[num_cols];
   res = MSK_getsolution(task,
-			MSK_SOL_ITR,
-			NULL,
-			NULL,
-			NULL,
-			NULL,
-			NULL,
-			NULL,
-			colsol_,
-			NULL,
-			NULL,
-			NULL,
-			NULL,
-			NULL,
-			NULL
-			);
+                        MSK_SOL_ITR,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        colsol_,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL
+                        );
   return colsol_;
 }
