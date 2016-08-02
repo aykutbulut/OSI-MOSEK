@@ -10,6 +10,12 @@ extends COIN-OR's linear Mosek interface OsiMsk.
 OsiMosek is used by [DisCO][6] to solve mixed integer conic optimization
 problems.
 
+[1]: https://mosek.com/
+[2]: https://github.com/aykutbulut/OSI-CONIC
+[3]: https://projects.coin-or.org/CoinUtils
+[4]: https://projects.coin-or.org/Osi
+[6]: https://github.com/aykutbulut/DisCO
+
 # Basic Usage
 
 Following code snippet reads problem from an MPS file (an extended MPS
