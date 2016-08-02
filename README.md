@@ -69,8 +69,8 @@ following command
 ./configure --prefix=build_dir && make install
 ```
 
-You should use same ```build_dir``` that you used during configuration of
-dependencies. OsiMosek configure script will find them.
+OsiMosek configure script will find dependencies as long as you use same
+```build_dir``` that you used during configuration of them.
 
 
 ## Installation Instructions for Advanced Users
