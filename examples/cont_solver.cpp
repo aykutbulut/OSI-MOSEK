@@ -25,5 +25,6 @@ int main(int argc, char ** argv) {
 	    << solver->getObjValue() << std::endl;
   std::cout << "CPU time spent: " << double(duration)/double(CLOCKS_PER_SEC)
 	    << std::endl;
+  delete solver;
   return 0;
 }
