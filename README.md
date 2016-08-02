@@ -60,8 +60,7 @@ you are using Mosek 7.1. You need to update related words for a different Mosek
 version. Second command install OSI to ```build_dir```. Please see
 [Osi documentation][4] for details.
 
-You need to configure CoinUtils and OsiConic the same way using the same
-```build_dir```.
+You need to configure CoinUtils and OsiConic the same way using the same ```build_dir```.
 
 Once Osi and other dependencies are installed you can install OsiMosek with the
 following command
