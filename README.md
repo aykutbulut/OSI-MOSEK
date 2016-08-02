@@ -47,14 +47,15 @@ with the following command.
 make install
 ```
 
-First command configures Osi with Mosek. You need to replace ```build_dir``` for the
-directory that you want to install OSI. You need to replace ```mosek_dir``` with your
-mosek installation directory. This command assumes you are using Mosek 7.1. You
-need to update related words for a different Mosek version. Second command install
-OSI to ```build_dir```. Please see [Osi documentation][4] for details.
+First command configures Osi with Mosek. You need to replace ```build_dir```
+for the directory that you want to install OSI. You need to replace
+```mosek_dir``` with your mosek installation directory. This command assumes
+you are using Mosek 7.1. You need to update related words for a different Mosek
+version. Second command install OSI to ```build_dir```. Please see
+[Osi documentation][4] for details.
 
 You need to configure CoinUtils and OsiConic the same way using the same
-```build_dir``.
+```build_dir```.
 
 Once Osi and other dependencies are installed you can install OsiMosek with the
 following command
@@ -78,9 +79,9 @@ dependencies are accesible with pkg-config with the following command,
 ```pkg-config --cflags --libs osi-mosek```.
 
 Once the dependencies are accessible through pkg-config you can install
-OsiMosek by using regular "configure", "make" and "make install" sequence.
-Configure script will find the dependencies through pkg-config and link
-OsiMosek to them.
+OsiMosek by using regular ```configure```, ```make``` and ```make install```
+sequence.  Configure script will find the dependencies through pkg-config and
+link OsiMosek to them.
 
 [1]: https://mosek.com/
 [2]: https://github.com/aykutbulut/OSI-CONIC
