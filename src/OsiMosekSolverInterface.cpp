@@ -65,6 +65,31 @@ OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiMosekSolverInterface &
   checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
 }
 
+// copy constructor
+OsiMosekSolverInterface::OsiMosekSolverInterface(const OsiConicSolverInterface * other):
+  OsiSolverInterface(*other){
+  MSKrescodee res;
+  MSKtask_t task = getLpPtr();
+  // set number of threads to 1
+  res = MSK_putintparam(task, MSK_IPAR_NUM_THREADS, 1);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // ignore integrality constraints
+  res = MSK_putintparam(task, MSK_IPAR_MIO_MODE, MSK_MIO_MODE_IGNORED);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // set optimizer to conic
+  res = MSK_putintparam (task, MSK_IPAR_OPTIMIZER,  MSK_OPTIMIZER_CONIC);
+  checkMSKerror(res, "MSK_putintparam", "OsiMosekSolverInterface");
+  // add conic constraints
+  for (int i=0; i<other->getNumCones(); ++i) {
+    OsiLorentzConeType type;
+    int size;
+    int * members = 0;
+    other->getConicConstraint(i, type, size, members);
+    addConicConstraint(type, size, members);
+    delete[] members;
+  }
+}
+
 // copy assignment operator
 OsiMosekSolverInterface & OsiMosekSolverInterface::operator=(const OsiMosekSolverInterface & rhs) {
   // copy rhs to this
