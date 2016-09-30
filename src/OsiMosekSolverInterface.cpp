@@ -8,7 +8,7 @@
 // I am not sure whether this is a license violation. This
 // may be removed/replaced in future.
 // I would not experince any problem if this function was not static
-// in OsiMskSolverInterface. Since it is not I have to copy it here
+// in OsiMskSolverInterface.cpp. Since it is, I have to copy it here
 // and create redundancy.
 static inline void
 checkMSKerror( int err, std::string mskfuncname, std::string osimethod )

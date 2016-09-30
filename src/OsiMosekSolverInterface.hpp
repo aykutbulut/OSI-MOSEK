@@ -44,6 +44,8 @@ public:
   virtual int readMps(const char * filename, const char * extension="mps");
   virtual void writeMps (const char *filename, const char *extension="mps",
                          double objSense=0.0) const;
+  /// warm start methods
+  virtual CoinWarmStart* getWarmStart() const {return NULL;}
   // hot start methods
   // over-write linear mosek solver interface functions
   virtual void markHotStart();
@@ -69,7 +71,6 @@ public:
   //OsiMosekSolverInterface(const OsiMskSolverInterface & other);
   // assignment operator
   //OsiMosekSolverInterface & operator=(const OsiMosekSolverInterface & rhs);
-
 };
 
 #endif
