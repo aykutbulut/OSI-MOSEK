@@ -164,7 +164,7 @@ void OsiMosekSolverInterface::addConicConstraint(CoinPackedMatrix const * A,
                                                  CoinPackedVector const * b,
                                                  CoinPackedVector const * d,
                                                  double h) {
-  std::cerr << "Not implemented yet!" << std::cerr;
+  std::cerr << "Not implemented yet!" << std::endl;
   throw std::exception();
 }
 
@@ -184,7 +184,7 @@ void OsiMosekSolverInterface::modifyConicConstraint(int index,
                                                     OsiLorentzConeType type,
                                                     int numMembers,
                                                     const int * members) {
-  std::cerr << "Not implemented yet!" << std::cerr;
+  std::cerr << "Not implemented yet!" << std::endl;
   throw std::exception();
 }
 
